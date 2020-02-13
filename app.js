@@ -4,8 +4,8 @@ function makeReq() {
 	const xhr = new XMLHttpRequest()
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
-			const data = xhr.response
-			console.log(data.data.splice[0, 4])
+			const users = JSON.parse(xhr.response)
+			console.log(users.data.splice(0, 4))
 		}
 	}
 
@@ -20,7 +20,7 @@ function getLog(url) {
 	const xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
-			console.log(xhr.response)
+			console.log(JSON.parse(xhr.response))
 		}
 	}
 	xhr.open('GET', url)
@@ -33,7 +33,7 @@ function get(url, cb) {
 	const xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
-			cb(xhr.response)
+			cb(xhr.response) // parse if you'd like
 		}
 	}
 	xhr.open('GET', url)
