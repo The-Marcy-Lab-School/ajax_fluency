@@ -45,7 +45,7 @@ const get = (url, callback) => {
     xml.send();
 }
 
-get(`"https://jsonplaceholder.typicode.com/posts"`, testFunction())
+get(`"https://jsonplaceholder.typicode.com/posts"`, getLog)
 
 
 function testFunction() {
